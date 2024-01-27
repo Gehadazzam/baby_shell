@@ -39,11 +39,11 @@ int main(int argc, char **argv)
                         token = strtok(NULL, " \n");
                 }
                 argv[i] = NULL;
-                if (i < 0)
                     execution(argv);
 
         }
 
+        free (input);
 
         return (0);
 }
