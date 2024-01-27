@@ -4,7 +4,7 @@
 int main(int argc, char **argv)
 {
         (void) argc, argv;
-        char *prom = "baby_shell>>";
+        char *prom = "baby_shell>>", *input = NULL, *token = NULL;
         size_t length = 0;
         ssize_t count = 0;
 
@@ -13,7 +13,18 @@ int main(int argc, char **argv)
         {
                 printf("%s", prom);
                 count = getline(&input, &length, stdin);
+                if (count == EOF)
+                {
+                        free(input);
+                        break;
+                }
                 
+                token = _strtok(input, ' \n');
+                while (token != NULL)
+                {
+                        printf ("%s\n", token);
+                        token = _strtok(NULL, delim);
+                }
         }
 
 
