@@ -6,7 +6,7 @@ int main(int argc, char **argv)
         size_t length = 0;
         ssize_t count = 0;
         int token_num = 0, i;
-        (void) argc, (void) argv;
+        (void) argc;
 
         while (1)
         {

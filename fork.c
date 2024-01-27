@@ -3,6 +3,7 @@
 void execution(char *cmd)
 {
     char *argv[4];
+    int status = 0;
     pid_t proc_id = fork();
 
     /*if fork process failed*/
@@ -22,4 +23,6 @@ void execution(char *cmd)
         perror("execvp");
         exit(EXIT_FAILURE);
     }
+    else
+        waitpid(proc_id, &status, 0);
 }
