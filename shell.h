@@ -1,6 +1,9 @@
 #ifndef SHELL_H
 #define SHELL_H
 
+#define _GNU_SOURCE
+#define _XOPEN_SOURCE 700
+
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdlib.h>
@@ -15,7 +18,5 @@
 #include <sys/types.h>
 #include <signal.h>
 #include <sys/stat.h>
-
-#define _GNU_SOURCE
 
 #endif

@@ -1,13 +1,13 @@
-// main.c
+
 #include "shell.h"
 
 int main(int argc, char **argv)
 {
-        (void) argc, argv;
+        
         char *prom = "baby_shell>>", *input = NULL, *token = NULL;
         size_t length = 0;
         ssize_t count = 0;
-
+        (void) (argc), (void) (argv);
 
         while (1)
         {
