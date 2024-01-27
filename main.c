@@ -1,11 +1,16 @@
+<<<<<<< HEAD
+=======
+
+>>>>>>> 61f49c69fd13915b3e4b3a63587073201da96a21
 #include "shell.h"
 
 int main(int argc, char **argv)
 {
         (void) argc, argv;
-        char *prom = "baby_shell>>", *input = NULL, *token = NULL;
+        char *prom = "baby_shell>>", *input = NULL, *token = NULL, *copy = NULL;
         size_t length = 0;
         ssize_t count = 0;
+        int token_num = 0;
 
 
         while (1)
@@ -17,13 +22,29 @@ int main(int argc, char **argv)
                         free(input);
                         break;
                 }
-                
+                copy = strdup(input);
                 token = strtok(input, " \n");
                 while (token != NULL)
                 {
-                        printf ("%s\n", token);
+                        token_num++;
                         token = strtok(NULL, " \n");
                 }
+                argv = malloc(sizeof(char) * token_num + 1);
+                if (argv == NULL)
+                {
+                        /*perror memorey allocate*/
+                        free(input);
+                        free(copy);
+                        return (0);
+                }
+                token = strtok(copy, " \n");
+                for (i = 0; token != NULL; i++)
+                {
+                        argv[i] = strdup(token);
+                        token = strtok(NULL, " \n");
+                }
+                argv[i] = NULL;
+
         }
 
 
