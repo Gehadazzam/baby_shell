@@ -12,9 +12,7 @@
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <errno.h>
-#include <elf.h>
 #include <sys/types.h>
-#include <sys/wait.h>
 #include <signal.h>
 #include <sys/stat.h>
 
