@@ -19,11 +19,11 @@ int main(int argc, char **argv)
                         break;
                 }
                 
-                token = _strtok(input, ' \n');
+                token = strtok(input, " \n");
                 while (token != NULL)
                 {
                         printf ("%s\n", token);
-                        token = _strtok(NULL, ' \n');
+                        token = strtok(NULL, " \n");
                 }
         }
 
