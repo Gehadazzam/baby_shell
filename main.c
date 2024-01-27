@@ -40,7 +40,7 @@ int main(int argc, char **argv)
                 }
                 argv[i] = NULL;
                 if (i < 0)
-                    execution(argv[0]);
+                    execution(argv);
 
         }
 

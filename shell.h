@@ -22,5 +22,5 @@
 #include <sys/stat.h>
 
 
-void execution(char *cmd);
+void execution(char **cmd);
 #endif
