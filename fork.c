@@ -1,11 +1,9 @@
 #include "shell.h"
 
-void execution(char *cmd)
+void execution(char **cmd)
 {
-    char *argv[4];
-    int status = 0;
+    int status;
     pid_t proc_id = fork();
-
     /*if fork process failed*/
     if (proc_id == -1)
     {
@@ -15,11 +13,7 @@ void execution(char *cmd)
     /*if fork process successful*/
     else if (proc_id == 0)
     {
-        argv[0] = "/bin/sh";
-        argv[1] = "-c";
-        argv[2] = cmd;
-        argv[3] = NULL;
-        execvp(argv[0], argv);
+        execvp(*cmd, cmd);
         perror("execvp");
         exit(EXIT_FAILURE);
     }
