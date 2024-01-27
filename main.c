@@ -2,11 +2,12 @@
 
 int main(int argc, char **argv)
 {
+        (void) argc, argv;
         char *prom = "baby_shell>>", *input = NULL, *token = NULL, *copy = NULL;
         size_t length = 0;
         ssize_t count = 0;
-        int token_num = 0, i;
-        (void) argc;
+        int token_num = 0;
+
 
         while (1)
         {
@@ -39,8 +40,6 @@ int main(int argc, char **argv)
                         token = strtok(NULL, " \n");
                 }
                 argv[i] = NULL;
-                if (i < 0)
-                    execution(argv[0]);
 
         }
 
