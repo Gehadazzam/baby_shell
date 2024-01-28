@@ -14,7 +14,7 @@ int check_command(char **argv, char *input)
         }
         else if (strcmp(argv[0], "cd") == 0)
         {
-                chdir(argv[0]);
+                chdir(argv[1]);
                 return(1);
         }
         return (0);
