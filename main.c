@@ -39,8 +39,10 @@ int main(int argc, char **argv) {
 
 
                 execution(new_argv);
-                if (argv == NULL)
+                if (new_argv == NULL)
                 {
+                        
+                        
                         return (0);
                 }
 

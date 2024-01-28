@@ -23,7 +23,7 @@ void clean_and_exit(char **argv)
 	{
 		free(argv[i]);
 	}
-	argv = NULL;
+	free(argv);
 }
 
 void print_environment()
