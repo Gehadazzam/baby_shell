@@ -12,6 +12,11 @@ int check_command(char **argv, char *input)
                 print_environment();
                 return (1);
         }
+        else if (strcmp(argv[0], "cd") == 0)
+        {
+                chdir(argv[0]);
+                return(1);
+        }
         return (0);
 }
 
