@@ -5,7 +5,7 @@ int check_command(char **argv)
         if (strcmp(argv[0], "exit") == 0)
 	{
 		clean_and_exit(argv);
-                return (1);
+                exit (0);
 	}
         else if (strcmp(argv[0], "env") == 0)
         {
