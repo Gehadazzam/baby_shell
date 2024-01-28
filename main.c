@@ -41,7 +41,6 @@ int main(int argc, char **argv) {
                 execution(new_argv);
                 if (argv == NULL)
                 {
-                        free(input);
                         return (0);
                 }
 

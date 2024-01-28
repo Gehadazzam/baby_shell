@@ -3,7 +3,13 @@
 void execution(char **cmd)
 {
     int status;
-    pid_t proc_id = fork();
+    pid_t proc_id;
+
+    if (check_command(cmd) == 1)
+    {
+            return;
+    }
+    proc_id = fork();
     /*if fork process failed*/
     if (proc_id == -1)
     {
@@ -13,10 +19,6 @@ void execution(char **cmd)
     /*if fork process successful*/
     else if (proc_id == 0)
     {
-        if (check_command(cmd) == 1)
-        {
-            return;
-        }
         execvp(*cmd, cmd);
         perror("execvp");
         exit(EXIT_FAILURE);
