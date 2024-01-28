@@ -1,10 +1,10 @@
 #include "shell.h"
 
-int check_command(char **argv)
+int check_command(char **argv, char *input)
 {
         if (strcmp(argv[0], "exit") == 0)
 	{
-		clean_and_exit(argv);
+		clean_and_exit(argv, input);
                 exit (0);
 	}
         else if (strcmp(argv[0], "env") == 0)
@@ -15,7 +15,7 @@ int check_command(char **argv)
         return (0);
 }
 
-void clean_and_exit(char **argv)
+void clean_and_exit(char **argv, char *input)
 {
         int i = 0;
 
@@ -24,6 +24,7 @@ void clean_and_exit(char **argv)
 		free(argv[i]);
 	}
 	free(argv);
+        free(input);
 }
 
 void print_environment()

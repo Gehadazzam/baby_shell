@@ -1,11 +1,11 @@
 #include "shell.h"
 
-void execution(char **cmd)
+void execution(char **cmd, char *input)
 {
     int status;
     pid_t proc_id;
 
-    if (check_command(cmd) == 1)
+    if (check_command(cmd, input) == 1)
     {
             return;
     }

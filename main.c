@@ -38,7 +38,7 @@ int main(int argc, char **argv) {
                 free(copy);
 
 
-                execution(new_argv);
+                execution(new_argv, input);
                 if (new_argv == NULL)
                 {
                         

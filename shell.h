@@ -22,10 +22,10 @@
 
 extern char **environ;
 
-int check_command(char **argv);
+int check_command(char **argv, char *);
 void print_environment();
-void clean_and_exit(char **argv);
+void clean_and_exit(char **argv, char *);
 
-void execution(char **cmd);
+void execution(char **cmd, char *);
 
 #endif
