@@ -14,8 +14,6 @@ int main(int argc, char **argv) {
                 count = getline(&input, &length, stdin);
                 if (count == EOF) {
                         free(input);
-                        /*
-                        free(copy);*/
                         return (-1);
                 }
                 copy = strdup(input);
@@ -37,16 +35,20 @@ int main(int argc, char **argv) {
                         token = strtok(NULL, " \n");
                 }
                 new_argv[i] = NULL;
+                free(copy);
 
 
                 execution(new_argv);
-
+                if (argv == NULL)
+                {
+                        free(input);
+                        return (0);
+                }
 
                 for (i = 0; new_argv[i] != NULL; i++) {
                         free(new_argv[i]);
                 }
                 free(new_argv);
-                free(copy);
         }
 
         free(input);

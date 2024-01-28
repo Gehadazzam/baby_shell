@@ -20,6 +20,12 @@
 #include <signal.h>
 #include <sys/stat.h>
 
+extern char **environ;
+
+int check_command(char **argv);
+void print_environment();
+void clean_and_exit(char **argv);
+
 void execution(char **cmd);
 
 #endif

@@ -13,6 +13,10 @@ void execution(char **cmd)
     /*if fork process successful*/
     else if (proc_id == 0)
     {
+        if (check_command(cmd) == 1)
+        {
+            return;
+        }
         execvp(*cmd, cmd);
         perror("execvp");
         exit(EXIT_FAILURE);
