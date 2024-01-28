@@ -25,7 +25,7 @@ extern char **environ;
 int check_command(char **argv, char *);
 void print_environment();
 void clean_and_exit(char **argv, char *);
-
+void cat_file(char **argv);
 void execution(char **cmd, char *);
 
 #endif

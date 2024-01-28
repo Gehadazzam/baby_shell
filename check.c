@@ -14,10 +14,31 @@ int check_command(char **argv, char *input)
         }
         else if (strcmp(argv[0], "cd") == 0)
         {
-                chdir(argv[0]);
+                chdir(argv[1]);
+                return(1);
+        }
+        else if (strcmp(argv[0], "cat") == 0)
+        {
+                cat_file(&argv[0]);
                 return(1);
         }
         return (0);
+}
+
+void cat_file(char **argv)
+{
+        char x;
+        FILE *file = fopen(argv[1], "r");
+        if (file == NULL)
+        {
+                perror("open");
+                return;
+        }
+        while ((x = fgetc(file))!= EOF)
+        {
+                putchar(x);
+        }
+        fclose(file);
 }
 
 void clean_and_exit(char **argv, char *input)
