@@ -39,12 +39,6 @@ int main(int argc, char **argv) {
 
 
                 execution(new_argv, input);
-                if (new_argv == NULL)
-                {
-                        
-                        
-                        return (0);
-                }
 
                 for (i = 0; new_argv[i] != NULL; i++) {
                         free(new_argv[i]);
