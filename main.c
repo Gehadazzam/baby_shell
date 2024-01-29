@@ -6,47 +6,48 @@ int main(int argc, char **argv) {
         size_t length = 0;
         ssize_t count = 0;
         int token_num = 0, i;
-        (void) argc;
         (void) argv;
-
-        while (1) {
-                printf("%s", prom);
-                count = getline(&input, &length, stdin);
-                if (count == EOF) {
-                        free(input);
-                        return (-1);
-                }
-                copy = strdup(input);
-                token = strtok(input, " \n");
-                while (token != NULL) {
-                        token_num++;
-                        token = strtok(NULL, " \n");
-                }
-                new_argv = malloc(sizeof(char *) * (token_num + 1));
-                if (new_argv == NULL) {
-                        perror("malloc");
-                        free(input);
+        if (argc == 1)
+        {        while (1) {
+                        printf("%s", prom);
+                        count = getline(&input, &length, stdin);
+                        if (count == EOF) {
+                                free(input);
+                                return (-1);
+                        }
+                        copy = strdup(input);
+                        token = strtok(input, " \n");
+                        while (token != NULL) {
+                                token_num++;
+                                token = strtok(NULL, " \n");
+                        }
+                        new_argv = malloc(sizeof(char *) * (token_num + 1));
+                        if (new_argv == NULL) {
+                                perror("malloc");
+                                free(input);
+                                free(copy);
+                                return (0);
+                        }
+                        token = strtok(copy, " \n");
+                        for (i = 0; token != NULL; i++) {
+                                new_argv[i] = strdup(token);
+                                token = strtok(NULL, " \n");
+                        }
+                        new_argv[i] = NULL;
                         free(copy);
-                        return (0);
+
+
+                        execution(new_argv, input);
+
+                        for (i = 0; new_argv[i] != NULL; i++) {
+                                free(new_argv[i]);
+                        }
+                        free(new_argv);
                 }
-                token = strtok(copy, " \n");
-                for (i = 0; token != NULL; i++) {
-                        new_argv[i] = strdup(token);
-                        token = strtok(NULL, " \n");
-                }
-                new_argv[i] = NULL;
-                free(copy);
 
-
-                execution(new_argv, input);
-
-                for (i = 0; new_argv[i] != NULL; i++) {
-                        free(new_argv[i]);
-                }
-                free(new_argv);
-        }
-
-        free(input);
+                free(input);}
+        else
+                file_mode(argv[1]);
         return (0);
 }
 
