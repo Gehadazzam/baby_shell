@@ -20,6 +20,7 @@ void execution(char **cmd, char *input)
     else if (proc_id == 0)
     {
         execvp(*cmd, cmd);
+        clean_and_exit(cmd, input);
         perror("execvp");
         exit(EXIT_FAILURE);
     }
