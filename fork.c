@@ -19,6 +19,7 @@ void execution(char **cmd, char *input)
     /*if fork process successful*/
     else if (proc_id == 0)
     {
+        cmd = check_aliases(cmd);
         execvp(*cmd, cmd);
         clean_and_exit(cmd, input);
         perror("execvp");
