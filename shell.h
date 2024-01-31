@@ -26,7 +26,7 @@ extern char **environ;
 struct alia
 {
     char *name;
-    char *value;
+    char **value;
 };
 
 extern struct alia aliases[MAX_ALIASES];
@@ -38,6 +38,7 @@ void clean_and_exit(char **argv, char *);
 void cat_file(char **argv);
 void execution(char **cmd, char *);
 void file_mode(char *);
+char **tokenize(char *input);
 
 /*alias.c*/
 void _alias(char **argv);
