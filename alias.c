@@ -33,9 +33,9 @@ char **check_aliases(char **argv)
 {
         for (i = 0; i < aliases_counter; i++)
         {
-                if (strcmp(argv[1], aliases->name) == 0)
+                if (strcmp(argv[0], aliases[i].name) == 0)
                 {
-                        argv[1] = aliases->value;
+                        argv[0] = aliases[i].value;
                         return (argv);
                 }
         }
